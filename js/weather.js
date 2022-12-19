@@ -1,4 +1,4 @@
-let api_key = 'YOUR_OPEN_WEATHER_API_KEY';
+let api_key = 'f967961505a4b03f6f7992bd48ef5ac1';
 
 
 let weather_icons = {
@@ -41,8 +41,8 @@ function changeWeather(city) {
             let icon = weather_icons[weather_type];
             let humidity = data["main"]["humidity"] + "%";
             let wind_speed =  mps_to_mph(data["wind"]["speed"]);
-            let visibility = m_to_ml(data["visibility"])
-            let cloudiness = data["clouds"]["all"] + "%";
+            let sunset = moment.utc(data["sys"]["sunset"],'X').add(data["timezone"],'seconds').format('h:mmA');
+            let sunrise = moment.utc(data["sys"]["sunrise"],'X').add(data["timezone"],'seconds').format('h:mmA');
             let wind_dir = deg_to_direction(data["wind"]["deg"]);
 
             document.getElementById('city-name').innerText = city_name;
@@ -51,8 +51,8 @@ function changeWeather(city) {
             document.getElementById('feels-like').innerText = "Feels like " + feels_like + "°";
             document.getElementById('weather-icon').innerHTML = icon;
             document.getElementById('humidity').innerText = humidity;
-            document.getElementById('visible').innerText = visibility;
-            document.getElementById('cloudiness').innerText = cloudiness;
+            document.getElementById('sunset').innerText = sunset;
+            document.getElementById('sunrise').innerText = sunrise;
             document.getElementById('windspeed').innerText = wind_speed;
             document.getElementById('winddir').innerText = wind_dir
         });
