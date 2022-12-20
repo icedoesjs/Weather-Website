@@ -72,7 +72,7 @@ function show_error(error_text) {
     setTimeout(() => {
         alert_box.classList.remove('show');
         alert_box.classList.add('hide');
-    }, 5000)
+    }, 3000)
 }
 
 function validate_alert() {
