@@ -26,7 +26,6 @@ var el = document.addEventListener('DOMContentLoaded', function() {
 })
 
 function changeWeather(city) {
-    console.log(city)
     let geo_code_base = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`;
     
     fetch(geo_code_base).then((res) => res.json()).then((data) => {
